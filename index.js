@@ -32,4 +32,15 @@ app.get("/movie", (req, res) => {
   });
 });
 
+app.get("/test", (req, res) => {
+  var spawn = require("child_process").spawn;
+  var process = spawn("python", [
+    "./testpy.py",
+    req.query.inputData, // for example ~ 3
+  ]);
+  process.stdout.on("data", function (data) {
+    res.send(data.toString());
+  });
+});
+
 app.listen(PORT);
