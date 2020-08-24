@@ -28,7 +28,7 @@ app.get("/movie", (req, res) => {
     req.query.inputData, // for example ~ 3
   ]);
   process.stdout.on("data", function (data) {
-    res.send(data.toString());
+    res.send(data.toString() + " recommended");
   });
 });
 
